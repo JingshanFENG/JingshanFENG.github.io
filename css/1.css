@@ -1,0 +1,11 @@
+
+body{
+	background:url(../img/bg.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-attachment: fixed;
+	padding: 0;
+}
+
+
+
