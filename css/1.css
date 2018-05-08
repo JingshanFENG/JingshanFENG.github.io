@@ -14,7 +14,17 @@ body{
 	float:left;
 	width:45%;
 } 
+/*this is the second div and is float in the left*/
 
+/*.div2{
+	font-weight: bold;
+	font-size: 20px;
+	color:green;
+	margin:20px;
+	float:right;
+	width:45%;
+}*/
+/*this is used to append picture*/
 .c{
 	color:red;
 	font-size: 30px;
