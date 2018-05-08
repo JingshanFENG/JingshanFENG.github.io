@@ -9,22 +9,29 @@ When DOM is ready
       2 to 0 depending on its current value.
 */
 
+ 
 
-window.onload=function(){
-$( '[data-state]').click(function() {
 
-	var mycount=this.getAttribute("data-state");
-	console.log(mycount);
-	switch (mycount){
-	case '0':
-    this.setAttribute("data-state","1");
-    break;
-    case '1':
-    this.setAttribute("data-state","2");
-    break;
-    case '2':
-    this.setAttribute("data-state","0");
-    break;
-}
-});
-};
+window.onload=function(){  
+   var str = '小猪， <br> 晚上好，';
+   var i = 0;
+
+   function typing(){
+
+     var divTyping = document.getElementById('code');
+     if (i <= str.length) {
+      
+
+      divTyping.innerHTML = str.slice(0, i++) + '_';
+      setTimeout(function(){ typing()}, 200);//递归调用
+     
+   }
+    else{
+     divTyping.innerHTML = str;//结束打字,移除 _ 光标
+    }
+   }
+
+   typing();
+   
+
+}  
