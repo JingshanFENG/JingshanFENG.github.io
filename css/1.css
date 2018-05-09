@@ -6,6 +6,21 @@ body{
 	background-attachment: fixed;
 	padding: 0;
 }
+.g{
+	color:green;
+}
+.b{
+	color:blue;
+}
+.r{
+	color:red;
+}
+.y{
+	color:yellow;
+}
+.bl{
+	color:black;
+}
 .div1{
 	font-weight: bold;
 	font-size: 20px;
@@ -15,25 +30,25 @@ body{
 	width:45%;
 } 
 /*this is the second div and is float in the left*/
-
-/*.div2{
-	font-weight: bold;
-	font-size: 20px;
-	color:green;
-	margin:20px;
+ 
+.p{
 	float:right;
-	width:45%;
-}*/
-/*this is used to append picture*/
+	width:10%;
+
+ }
+
+/*class c is the welcome word*/
 .c{
-	color:red;
+
 	font-size: 30px;
 	text-align: center;
 	font-family: "黑体";
 }
+/*class f is the passward and form*/
 .f{
 		text-align: center;
 }
+/*all the class a feature is the button*/
 .a{
 	color: #606060;
 	margin:20px 20px 10px 20px;
