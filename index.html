@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/1.js"></script>
+<script src="js/fragment.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <link rel=stylesheet href="css/1.css">
@@ -17,9 +18,13 @@
 <button type="button" id="1" class="a">2018.5.8</button>
 <button type="button" id="2" class="a">2018.5.9</button>
 <button type="button" id="3" class="a">2018.5.10</button>
-<button type="button" id="4" class="a p" >显示图片</button>
+  
 
+
+
+<p id='day' class="d"></p>
 </div>
+
 <div id="form">
 <form id="myform" class="f"> 
   <label>passward <input id="pass" type="number"></label>
@@ -27,8 +32,14 @@
   <button id="check" type="button">Confirm</button>
 </form>
 
-</div>
+<div id="welc" class="wel" style="width:460px;margin:0 auto; display:none">
+  <canvas id="MyCanvas" width="460" height="60" class="cn">
+  不支持HTML5画布
+  </canvas>
+  </div>
 
+</div>
+<button type="button" id="4" class="a p" style="display:none; ">显示图片</button>
 <div id="code" class="div1">
 
 			
@@ -38,7 +49,7 @@
 
 
 				
-<div class="container" style="margin-top:100px; display:none" id="div2"> 
+<div class="container" style=" display:none; " id="div2"> 
   <img src="img/a1.jpg" alt="1" /> 
   <img src="img/a2.jpg" alt="2" /> 
   <img src="img/a3.jpg" alt="3" /> 
@@ -50,7 +61,8 @@
 </div>
 
 
-
+<div id="test" >
+</div>
 
 
 

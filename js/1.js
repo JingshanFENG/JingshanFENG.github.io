@@ -1,4 +1,38 @@
 
+var can, ctx, step = 50, steps = 255, delay = 20, rgbstep = 20;
+function init() {
+  can = document.getElementById("MyCanvas");
+  ctx= can.getContext("2d");
+  ctx.fillStyle = "orange";
+  ctx.font = "30pt tahoma";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  Textfadeup();        
+}
+ 
+function Textfadeup() {
+  rgbstep++;
+  ctx.clearRect(0, 0, can.width, can.height);
+  ctx.fillStyle = "rgb(" + rgbstep + "," + rgbstep + "," + rgbstep + ")"
+    ctx.fillText("欢迎我最最最最可爱小猪", 230, 30);
+  if (rgbstep < 255)
+    var t = setTimeout('Textfadeup()', 10);
+  if (rgbstep == 255) {
+    Textfadedown();
+  }
+}
+ 
+function Textfadedown() {
+  rgbstep=rgbstep-1;
+  ctx.clearRect(0, 0, can.width, can.height);
+  ctx.fillStyle = "rgb(" + rgbstep + "," + rgbstep + "," + rgbstep + ")"
+    ctx.fillText("欢迎我最最最最可爱小猪", 230, 30);
+  if (rgbstep > 20)
+    var t = setTimeout('Textfadedown()', 10);
+  if (rgbstep == 20) {
+    Textfadeup();
+  }
+}  
 
 window.onload=function(){  
 
@@ -20,6 +54,32 @@ window.onload=function(){
    var col=new Array("r","g","b","y","bl");
    //this col variable save the color class of the font
 
+
+    //this function used to counting the date
+   function tb(){
+      var myDate=new Date();//获取当前时间
+      var begtime=new Date("2018,2,8");//获取结束时间
+      //换算成秒 小数点向下舍入取整
+      var ltime=Math.floor((myDate.getTime()-begtime.getTime())/1000);
+      //console.log(ltime)
+      //换算成天 小数点向下舍入取整
+      var d=Math.floor(ltime/(24*60*60));
+      //换算成小时取去掉天数的余数（也就是小时） 小数点向下舍入取整
+      var h=Math.floor(ltime/(60*60)%24);
+      //换算成分钟取去掉小时的余数（也就是分钟） 小数点向下舍入取整
+      var m=Math.floor(ltime/60%60);
+      //换算成分钟取去掉分钟的余数（也就是秒） 小数点向下舍入取整
+      var s=Math.floor(ltime%60);
+      document.getElementById("day").innerHTML="距我们在一起已经:"+d+"天"+h+"小时"+m+"分钟"+s+"秒";
+      if(ltime<=0){
+        document.getElementById("day").innerHTML="元旦快乐！";
+        clearTimeout(tb);
+      }
+      setTimeout(tb,1000);
+    }
+
+
+
 //following is to check the passward and display the key elements
 $("#check").click(function(){
   var x = document.querySelector('#pass');
@@ -27,6 +87,8 @@ $("#check").click(function(){
   if(x.value==1234){
     alert("身份验证完毕，小猪您好");  
     document.getElementById( "button").style.display= "block"; 
+     document.getElementById("welc").style.display= "block";
+     document.getElementById("4").style.display= "block"
     //show the button
     $("#1").click(function(){
       //console.log(typ);
@@ -42,36 +104,28 @@ $("#check").click(function(){
       var i = 0;
       typing(i,str);
     });
-    //following is to show the welcome word
-    var txt2=$("<p></p>").text("欢迎我最最最最可爱小猪"); 
 
 
+    tb();
+    //show the counting date
 
-    txt2.addClass("c r");
 
-    //this class is modified in css
-    $(".b").append(txt2);
-    $(".c").append($(".p"));
-    var t=1;
-    //the following is to change the color of the title when the mouse move over
-    $(".c").hover(
-      function(){
-        // console.log(t);
-        // console.log(col);
-        $(this).removeClass("r");
-        $(this).addClass(col[t]);
-        if(t!=4)
-          t=t+1;
-        else
-          t=1;
-      },
-      function(){
-        var x=$(this).attr("class");
+      init();
 
-        $(this).removeClass(x);
-        $(this).addClass("r c");
-      }
-      );
+        $("#test").fragmentFly({
+              image_url:"img/dg.png",    //背景图路径，当前目录为元素所在的html目录
+              cut_dir:"x",    //可选"x"或"y"，默认均分x方向
+              ave_part:12,    //均分cut_dir方向，默认切割成12份
+              rm_part:[2,3]   //非cut_dir方向上随机切割，默认最小2份，最多3份
+            },
+            {
+              anime_dir:"left",   //切割子元素动画运行方向，可选"up","down","left","right"，默认为down
+              path:[500,800],     //切割子元素动画路长，默认路径最短500px，最长800px
+              time:[1000,1300],   //切割子元素动画时长，默认时长最短1000ms，最长1300ms
+              opacity:[1,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
+            });
+
+
 
     $("#myform").remove();
     //remove the passward form
@@ -95,8 +149,7 @@ $("#check").click(function(){
           $(this).addClass("zoom").fadeOut(700,append);   
           function append(){
             $(this).removeClass("zoom").appendTo(".container").show();
-            // var name = $(".container").children("img").first().attr("alt");
-            //  $(".name p").text("No "+name);
+
           }     
       })
     
@@ -105,8 +158,7 @@ $("#check").click(function(){
           play.addClass("zoom").fadeOut(700,append);    
           function append(){
           $(this).removeClass("zoom").appendTo(".container").show();
-          // var name = $(this).parent().children("img").first().attr("alt");
-          //  $(".name p").text("No "+name);
+
           }
           interval = setTimeout(auto,5000);
       }
