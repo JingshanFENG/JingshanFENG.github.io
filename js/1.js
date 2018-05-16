@@ -92,76 +92,80 @@ $("#check").click(function(){
     //show the button
     $("#1").click(function(){
       //console.log(typ);
-      var str = '小猪， <br> 晚上好呀，今天是我开始做这个网页的第一天，距离我们在一起100天的纪念日还有11天了，不知道送小猪什么礼物。<br>想了好久，决定写个网页送给您。虽然网页比较粗糙，但是希望您能够喜欢。<br>这个网页我以后也会经常更新的，您有空也可以常来看看。<br><br>爱您的<br>小山';
+      var str = '小猪， <br> 晚上好呀，今天是我开始做这个网页的第一天，距离我们在一起100天的纪念日还有11天了，不知道送小猪什么礼物。<br>想了好久，决定写个网页送给您。虽然网页比较粗糙，但是希望您能够喜欢。<br><br>爱您的<br>小山';
       var i = 0;
       //console.log(typ);
       typing(i,str);
       
     });
 
-    $("#2").click(function(){
-      var str = '小猪， <br> 今天是我们在一起的第90天。小山今天继续做页面，新建了几个页面，将一些特性隐藏了起来嘻嘻，假装是彩蛋<br>今天依然喜欢你<br><br>爱您的<br>小山';
-      var i = 0;
-      typing(i,str);
-    });
+      $("#2").click(function(){
+        var str = '小猪， <br> 今天是我们在一起的第90天。小山今天继续做页面，新建了几个页面，加了一些功能，让它看起来更动态了一点<br>今天依然喜欢你<br><br>爱您的<br>小山';
+        var i = 0;
+        typing(i,str);
+      });
 
+      $("#3").click(function(){
+        var str = '小猪， <br> 时间过的好快，离分别的时间也越来越近了...emmm最近的没有时间来做这个网页吧，再过三天我这个礼物就要送出去了<br>期间您一直问我送什么礼物，我猜您会喜欢比较实用的吧，但是说不准也会喜欢像这个网页一样用心的礼物，于是就送您两份礼物好了<br>☆(－ｏ⌒) <br>爱您的<br>小山';
+        var i = 0;
+        typing(i,str);
+      });
 
-    tb();
+        tb();
     //show the counting date
 
 
-      init();
+        init();
 
         $("#test").fragmentFly({
               image_url:"img/dg.png",    //背景图路径，当前目录为元素所在的html目录
               cut_dir:"x",    //可选"x"或"y"，默认均分x方向
               ave_part:12,    //均分cut_dir方向，默认切割成12份
               rm_part:[2,3]   //非cut_dir方向上随机切割，默认最小2份，最多3份
-            },
-            {
-              anime_dir:"left",   //切割子元素动画运行方向，可选"up","down","left","right"，默认为down
-              path:[500,800],     //切割子元素动画路长，默认路径最短500px，最长800px
-              time:[1000,1300],   //切割子元素动画时长，默认时长最短1000ms，最长1300ms
-              opacity:[1,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
+               },
+              {
+                anime_dir:"left",   //切割子元素动画运行方向，可选"up","down","left","right"，默认为down
+                path:[500,800],     //切割子元素动画路长，默认路径最短500px，最长800px
+                time:[1000,1300],   //切割子元素动画时长，默认时长最短1000ms，最长1300ms
+                opacity:[1,1]       //切割子元素透明度变化，默认初始为1，结束为1(即无渐变)
             });
 
 
 
-    $("#myform").remove();
+        $("#myform").remove();
     //remove the passward form
     }
   else
     alert("密码错误，请重新输入！");
 });
-  //this variable is to control the picture process
+      //this variable is to control the picture process
   
       var pic=0;
       //the following function is to press the picture button
       $("#4").click(function(){
-      if(pic==0){
-      pic=1;
-      //the following is to show and run the picture
-      $("#4").text("隐藏图片");
-      document.getElementById( "div2").style.display= "block"; 
-      //show the picture
-      var interval;
-      $(".container img").click(function cover(){
-          $(this).addClass("zoom").fadeOut(700,append);   
-          function append(){
-            $(this).removeClass("zoom").appendTo(".container").show();
-
-          }     
-      })
+          if(pic==0){
+              pic=1;
+              //the following is to show and run the picture
+              $("#4").text("隐藏图片");
+              document.getElementById( "div2").style.display= "block"; 
+              //show the picture
+              var interval;
+              $(".container img").click(function cover(){
+                  $(this).addClass("zoom").fadeOut(700,append);   
+                  function append(){
+                  $(this).removeClass("zoom").appendTo(".container").show();
+                  }     
+              })
     
-      function auto(){
-          var play = $(".container").children("img").first();
-          play.addClass("zoom").fadeOut(700,append);    
-          function append(){
-          $(this).removeClass("zoom").appendTo(".container").show();
-
-          }
-          interval = setTimeout(auto,5000);
-      }
+            function auto(){
+                    var play = $(".container").children("img").first();
+                    play.addClass("zoom").fadeOut(700,append); 
+                       $(".container").children("img").second().show();
+                    function append(){
+                    $(this).removeClass("zoom").appendTo(".container").show();
+                  }
+                    interval = setTimeout(auto,5000);
+                }
     
       $(".container img").hover(function(){
           stopPlay();
@@ -170,8 +174,8 @@ $("#check").click(function(){
         })
     
       function stopPlay(){
-        clearTimeout(interval)
-      }
+          clearTimeout(interval)
+        }
       auto();
     }
     else{
