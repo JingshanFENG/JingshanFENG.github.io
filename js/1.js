@@ -58,7 +58,7 @@ window.onload=function(){
     //this function used to counting the date
    function tb(){
       var myDate=new Date();//获取当前时间
-      var begtime=new Date("2018,2,8");//获取结束时间
+      var begtime=new Date(2018,1,8,21,58,0);//获取结束时间
       //换算成秒 小数点向下舍入取整
       var ltime=Math.floor((myDate.getTime()-begtime.getTime())/1000);
       //console.log(ltime)
@@ -99,17 +99,20 @@ $("#check").click(function(){
       
     });
 
+
+
       $("#2").click(function(){
-        var str = '小猪， <br> 今天是我们在一起的第90天。小山今天继续做页面，新建了几个页面，加了一些功能，让它看起来更动态了一点<br>今天依然喜欢你<br><br>爱您的<br>小山';
+        var str = '小猪， <br> 时间过的好快，离分别的时间也越来越近了...emmm最近的没有时间来做这个网页吧，再过三天我这个礼物就要送出去了<br>期间您一直问我送什么礼物，我猜您会喜欢比较实用的吧，但是说不准也会喜欢像这个网页一样用心的礼物，于是就送您两份礼物好了<br>☆(－ｏ⌒) <br>爱您的<br>小山';
         var i = 0;
         typing(i,str);
       });
 
       $("#3").click(function(){
-        var str = '小猪， <br> 时间过的好快，离分别的时间也越来越近了...emmm最近的没有时间来做这个网页吧，再过三天我这个礼物就要送出去了<br>期间您一直问我送什么礼物，我猜您会喜欢比较实用的吧，但是说不准也会喜欢像这个网页一样用心的礼物，于是就送您两份礼物好了<br>☆(－ｏ⌒) <br>爱您的<br>小山';
+        var str = '小猪， <br> 今天是我们在一起的第99天了，我打算今晚就把这个礼物送给您嘻嘻。不过由于倒计时的时间设置精确到了分钟，我是那天晚上表白的，所以大概要今天晚上才是正式的99天。<br>祝我们99天纪念日快乐，每天和小猪在一起都超级开心。<br><br>爱您的<br>小山';
         var i = 0;
         typing(i,str);
       });
+
 
         tb();
     //show the counting date
